@@ -8,7 +8,7 @@ class Topic(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    def _str_(self):
+    def __str__(self):
         """Return a string representation of the model"""
         return self.text
 
@@ -21,7 +21,7 @@ class Entry(models.Model):
     class Meta:
         verbose_name_plural = 'entries'
     
-    def _str_(self):
+    def __str__(self):
         """Return a string representation of the model."""
         if len(self.text) > 50:
             return f"{self.text[:50]}..."
